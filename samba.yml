@@ -1,8 +1,12 @@
 services:
   samba:
-    image: ghcr.io/servercontainers/samba:latest
     container_name: samba
+    image: ghcr.io/servercontainers/samba:latest
     restart: unless-stopped
+    logging:
+      driver: json-file
+    ports:
+      - 445:445
     environment:
       ACCOUNT_admin: L6&nA!wt
       ACCOUNT_admin1: y@38Vfn2
@@ -11,8 +15,6 @@ services:
       SAMBA_VOLUME_CONFIG_mediashare: "[Media]; path=/shares/media; browsable = yes; valid users = admin, admin1; writable = yes; read only = no; guest ok = no"
     volumes:
       - /media:/shares/media
-    ports:
-      - 445:445
     cap_add:
       - CAP_NET_ADMIN
     networks:
