@@ -1,4 +1,5 @@
 version: "3.8"
+services:
   radarr:
     container_name: radarr
     image: ghcr.io/hotio/radarr:latest
