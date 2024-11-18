@@ -1,3 +1,4 @@
+version: "3.8"
   sabnzbd:
     container_name: sabnzbd
     image: ghcr.io/hotio/sabnzbd:latest
@@ -13,7 +14,7 @@
       - TZ=Europe/London
     volumes:
       - /docker/appdata/sabnzbd:/config
-      - /data/usenet:/data/usenet:rw
+      - /data/downloads:/data/downloads
     networks:
       default:
         ipv4_address: 100.0.0.9
