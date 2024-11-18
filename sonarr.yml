@@ -12,8 +12,8 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /docker/appdata/sonarr/:/config/
-      - /data/:/data/
+      - /docker/appdata/sonarr:/config
+      - /data:/data
     networks:
       default:
         ipv4_address: 100.0.0.6
