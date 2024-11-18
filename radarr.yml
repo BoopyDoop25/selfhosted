@@ -14,7 +14,6 @@ version: "3.8"
     volumes:
       - /docker/appdata/radarr:/config
       - /data:/data
-
     networks:
       default:
         ipv4_address: 100.0.0.5
