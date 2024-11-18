@@ -14,7 +14,7 @@ services:
       UID_admin1: 1001
       SAMBA_VOLUME_CONFIG_mediashare: "[Media]; path=/shares/media; browsable = yes; valid users = admin, admin1; writable = yes; read only = no; guest ok = no"
     volumes:
-      - /media:/shares/media
+      - /data:/shares/media
     cap_add:
       - CAP_NET_ADMIN
     networks:
