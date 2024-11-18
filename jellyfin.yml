@@ -15,6 +15,7 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
     volumes:
       - /docker/appdata/jellyfin:/config
+      - /data/media:/data/media
     networks:
       default:
         ipv4_address: 100.0.0.3
