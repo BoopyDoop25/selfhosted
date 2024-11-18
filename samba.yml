@@ -1,4 +1,4 @@
-services:
+version: "3.8"
   samba:
     container_name: samba
     image: ghcr.io/servercontainers/samba:latest
