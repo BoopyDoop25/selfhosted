@@ -1,7 +1,7 @@
 version: "3.8"
   jellyfin:
     container_name: jellyfin
-    image: jellyfin/jellyfin
+    image: ghcr.io/hotio/jellyfin
     restart: unless-stopped
     logging:
       driver: json-file
