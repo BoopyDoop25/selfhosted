@@ -1,0 +1,26 @@
+version: '3.8'
+  npm:
+    container_name: npm
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    ports:
+      - '80:80'
+      - '443:443'
+      - '81:81'
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+    volumes:
+      - /docker/appdata/npm/data:/data
+      - /docker/appdata/npm/letsencrypt:/etc/letsencrypt
+    networks:
+      default:
+        ipv4_address: 100.0.0.2
+networks:
+  default:
+    external: true
+    name: yes
