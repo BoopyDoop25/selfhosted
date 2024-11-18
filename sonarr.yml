@@ -1,5 +1,4 @@
-version: "3.2"
-services:
+version: "3.8"
   sonarr:
     container_name: sonarr
     image: ghcr.io/hotio/sonarr:latest
@@ -15,7 +14,6 @@ services:
     volumes:
       - /docker/appdata/sonarr:/config
       - /data:/data
-
     networks:
       default:
         ipv4_address: 100.0.0.6
