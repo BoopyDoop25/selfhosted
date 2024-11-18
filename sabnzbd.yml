@@ -13,8 +13,8 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /docker/appdata/sabnzbd:/config/
-      - /data/downloads:/data/downloads/
+      - /docker/appdata/sabnzbd:/config
+      - /data/downloads:/data/downloads:rw
     networks:
       default:
         ipv4_address: 100.0.0.9
