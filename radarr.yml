@@ -10,6 +10,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - UMASK=002
       - TZ=Europe/London
     volumes:
       - /docker/appdata/radarr:/config
