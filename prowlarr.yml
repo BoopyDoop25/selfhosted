@@ -13,6 +13,14 @@ services:
       - TZ=Europe/London
     volumes:
       - /docker/appdata/prowlarr:/config
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: '256M'
+        reservations:
+          cpus: '0'
+          memory: '128M'
     networks:
       default:
         ipv4_address: 100.0.0.4
