@@ -14,7 +14,7 @@ services:
     volumes:
       - /docker/appdata/radarr:/config
       - /data:/data
-     deploy:
+    deploy:
       resources:
         limits:
           cpus: '3'
