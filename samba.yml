@@ -17,6 +17,14 @@ services:
       - /data:/shares/media
     cap_add:
       - CAP_NET_ADMIN
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: '512M'
+        reservations:
+          cpus: '0.1'
+          memory: '128M'
     networks:
       default:
         ipv4_address: 100.0.0.10
