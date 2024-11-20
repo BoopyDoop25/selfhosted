@@ -16,6 +16,14 @@ services:
     volumes:
       - /docker/appdata/jellyfin:/config
       - /data/media:/data/media
+    deploy:
+      resources:
+        limits:
+          cpus: '3'
+          memory: '6G'
+        reservations:
+          cpus: '0'
+          memory: '256M'
     networks:
       default:
         ipv4_address: 100.0.0.3
