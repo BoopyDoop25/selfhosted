@@ -21,13 +21,13 @@ services:
       resources:
         limits:
           cpus: '0.2'
-          memory: '512M'
+          memory: '256M'
         reservations:
           cpus: '0.1'
           memory: '128M'
     networks:
       default:
-        ipv4_address: 100.0.0.2
+        ipv4_address: 100.0.0.3
 networks:
   default:
     external: true
