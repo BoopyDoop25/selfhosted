@@ -23,7 +23,7 @@ services:
           memory: '128M'
     networks:
       default:
-        ipv4_address: 100.0.0.4
+        ipv4_address: 100.0.0.6
 networks:
   default:
     external: true
