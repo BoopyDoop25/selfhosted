@@ -1,0 +1,15 @@
+services:
+  discordjs:
+    container_name: discordjs
+    image: boopydoop/discordbot:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: '512M'
+        reservations:
+          cpus: '0'
+          memory: '256M'
