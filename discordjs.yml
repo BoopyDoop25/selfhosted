@@ -13,10 +13,5 @@ services:
         reservations:
           cpus: '0'
           memory: '256M'
-    secrets:
-      - DISCORD_TOKEN
     environment:
-      DISCORD_TOKEN: /run/secrets/DISCORD_TOKEN
-secrets:
-   DISCORD_TOKEN:
-     file: /home/ubuntu/discordbot/token.txt
+      DISCORD_TOKEN: /home/ubuntu/discordbot/DISCORD_TOKEN
