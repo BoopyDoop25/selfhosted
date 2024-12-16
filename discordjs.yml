@@ -1,7 +1,7 @@
 services:
   discordjs:
     container_name: discordjs
-    image: discordbot
+    image: boopydoop/discordbot:latest
     restart: unless-stopped
     logging:
       driver: json-file
