@@ -13,5 +13,3 @@ services:
         reservations:
           cpus: '0'
           memory: '256M'
-    environment:
-      DISCORD_TOKEN: /home/ubuntu/discordbot/DISCORD_TOKEN
