@@ -11,7 +11,7 @@ services:
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_PASSWORD: ${password}
       WORDPRESS_DB_NAME: db
 
   db:
@@ -19,6 +19,6 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: 'db'
-      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: ${password}
     volumes:
       - ./db_data:/var/lib/mysql
