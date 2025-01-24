@@ -6,8 +6,7 @@ services:
     restart: unless-stopped
     volumes:
        - ./wordpress:/var/www/html
-    ports:
-       - 3000:80
+
     environment:
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: root
