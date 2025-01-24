@@ -20,7 +20,7 @@ services:
       MYSQL_DATABASE: 'db'
       MYSQL_ROOT_PASSWORD: ${password}
     volumes:
-      - ./db_data:/var/lib/mysql
+      - /data/compose/68/db_data:/var/lib/mysql
 
   cloudflared:
     image: cloudflare/cloudflared
