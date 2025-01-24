@@ -22,3 +22,10 @@ services:
       MYSQL_ROOT_PASSWORD: ${password}
     volumes:
       - ./db_data:/var/lib/mysql
+
+  cloudflared:
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: --no-autoupdate tunnel run
+    environment:
+      - TUNNEL_TOKEN=${token}
