@@ -1,0 +1,25 @@
+services:
+  gamevault-backend:
+    image: phalcode/gamevault-backend:latest
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_USERNAME: gamevault
+      DB_PASSWORD: ${password}
+    volumes:
+      # Mount the folder where your games are
+      - /data/gamevault/games:/files
+      # Mount the folder where GameVault should store its media
+      - /data/gamevault/media:/media
+    ports:
+      - 8080:8080/tcp
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: gamevault
+      POSTGRES_PASSWORD: ${password}
+      POSTGRES_DB: gamevault
+    volumes:
+      # Mount the folder where your PostgreSQL database files should land
+      - /data/gamevault/db:/var/lib/postgresql/data
