@@ -23,7 +23,7 @@ services:
           memory: '256M'
     networks:
       default:
-        ipv4_address: 100.0.0.9
+        ipv4_address: 100.0.0.12
   db:
     image: postgres:16
     restart: unless-stopped
@@ -34,6 +34,9 @@ services:
     volumes:
       # Mount the folder where your PostgreSQL database files should land
       - /data/gamevault/db:/var/lib/postgresql/data
+    networks:
+      default:
+        ipv4_address: 100.0.0.13
 networks:
   default:
     external: true
