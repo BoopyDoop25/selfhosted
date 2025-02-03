@@ -13,6 +13,21 @@ services:
       - /data/gamevault/media:/media
     ports:
       - 8080:8080/tcp
+        deploy:
+      resources:
+        limits:
+          cpus: '3'
+          memory: '6G'
+        reservations:
+          cpus: '0'
+          memory: '256M'
+    networks:
+      default:
+        ipv4_address: 100.0.0.9
+networks:
+  default:
+    external: true
+    name: yes
   db:
     image: postgres:16
     restart: unless-stopped
