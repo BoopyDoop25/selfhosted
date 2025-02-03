@@ -13,7 +13,7 @@ services:
       - /data/gamevault/media:/media
     ports:
       - 8080:8080/tcp
-        deploy:
+    deploy:
       resources:
         limits:
           cpus: '3'
@@ -24,10 +24,6 @@ services:
     networks:
       default:
         ipv4_address: 100.0.0.9
-networks:
-  default:
-    external: true
-    name: yes
   db:
     image: postgres:16
     restart: unless-stopped
@@ -38,3 +34,7 @@ networks:
     volumes:
       # Mount the folder where your PostgreSQL database files should land
       - /data/gamevault/db:/var/lib/postgresql/data
+networks:
+  default:
+    external: true
+    name: yes
