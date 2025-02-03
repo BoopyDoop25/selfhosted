@@ -12,7 +12,7 @@ services:
       # Mount the folder where GameVault should store its media
       - /data/gamevault/media:/media
     ports:
-      - 8080:8080/tcp
+      - 8181:8080/tcp
     deploy:
       resources:
         limits:
