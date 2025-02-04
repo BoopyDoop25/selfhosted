@@ -18,10 +18,3 @@ services:
         limits:
           cpus: '1'
           memory: '2G'
-    networks:
-      default:
-        ipv4_address: 100.0.0.14
-networks:
-  default:
-    external: true
-    name: yes
