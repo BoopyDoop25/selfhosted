@@ -1,6 +1,6 @@
 services:
   pingvin-share:
-  container_name: pingvin-share
+  container_name: pingvin_share
     image: stonith404/pingvin-share
     restart: unless-stopped
     ports:
