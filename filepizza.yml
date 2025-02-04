@@ -6,7 +6,7 @@ services:
     logging:
       driver: json-file
     ports:
-      - "5757:5757"
+      - "5757:443"
     environment:
       - PUID=1000
       - PGID=1000
