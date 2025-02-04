@@ -1,20 +1,43 @@
 services:
-  filepizza:
-    container_name: filepizza
-    image: kern/filepizza
-    restart: unless-stopped
-    logging:
-      driver: json-file
+  redis:
+    image: redis:latest
     ports:
-      - "5757:443"
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
+      - 6379:6379
+    networks:
+      - filepizza
     volumes:
-      - /docker/appdata/filepizza:/config
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: '2G'
+      - redis_data:/data
+  coturn:
+    image: coturn/coturn
+    ports:
+      - 3478:3478
+      - 3478:3478/udp
+      - 5349:5349
+      - 5349:5349/udp
+      # Relay Ports
+      # - 49152-65535:49152-65535/udp
+    environment:
+      - DETECT_EXTERNAL_IP=yes
+      - DETECT_RELAY_IP=yes
+    command: -n --log-file=stdout --redis-userdb="ip=redis connect_timeout=30"
+    networks:
+      - filepizza
+  filepizza:
+    build: .
+    image: kern/filepizza:latest
+    ports:
+      - 8080:8080
+    environment:
+      - PORT=8080
+      - REDIS_URL=redis://redis:6379
+    networks:
+      - filepizza
+    depends_on:
+      - redis
+
+networks:
+  filepizza:
+    driver: bridge
+
+volumes:
+  redis_data:
