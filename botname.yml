@@ -5,6 +5,8 @@ services:
     restart: unless-stopped
     logging:
       driver: json-file
+    env_file:
+      - stack.env
     deploy:
       resources:
         limits:
