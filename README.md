@@ -3,6 +3,13 @@
 please don't read me.
 
 
+# Docker Install Script
+
+From `https://get.docker.com`:
+```shell
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+```
 
 
 # IP Tables (iptables) Cheat Sheet
