@@ -8,8 +8,8 @@ services:
     ports:
       - 445:445
     environment:
-      ACCOUNT_admin: L6&nA!wt
-      ACCOUNT_admin1: y@38Vfn2
+      ACCOUNT_admin: ${ACCOUNT_admin}
+      ACCOUNT_admin1: ${ACCOUNT_admin1}
       UID_admin: 1000
       UID_admin1: 1001
       SAMBA_VOLUME_CONFIG_mediashare: "[Media]; path=/shares/media; browsable = yes; valid users = admin, admin1; writable = yes; read only = no; guest ok = no"
