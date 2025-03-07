@@ -19,7 +19,7 @@ services:
       ACCOUNT_pc: 8Bj@nw3Gah1
       UID_bob: 1001
 
-      SAMBA_VOLUME_CONFIG_shared_home: "[Media]; path=/shares/media; valid users = phone, pc; guest ok = no; read only = no; browseable = yes;  writeable = yes"
+      SAMBA_VOLUME_CONFIG_media: "[Media]; path=/shares/media; valid users = phone, pc; guest ok = no; read only = no; browseable = yes;  writeable = yes"
 
     volumes:
       - /data:/shares/media
