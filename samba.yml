@@ -13,10 +13,10 @@ services:
       AVAHI_DISABLE: 1
       NETBIOS_DISABLE: 1
 
-      ACCOUNT_phone: A5k0&2Fbo9
+      ACCOUNT_phone: ${phone_pass}
       UID_alice: 1000
 
-      ACCOUNT_pc: 8Bj@nw3Gah1
+      ACCOUNT_pc: ${pc_pass}
       UID_bob: 1001
 
       SAMBA_VOLUME_CONFIG_media: "[Media]; path=/shares/media; valid users = phone, pc; guest ok = no; read only = no; browseable = yes;  writeable = yes"
