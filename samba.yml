@@ -1,18 +1,26 @@
 services:
   samba:
     container_name: samba
-    image: ghcr.io/servercontainers/samba:latest
+    build: .
+    image: ghcr.io/servercontainers/samba
     restart: unless-stopped
     logging:
       driver: json-file
     ports:
       - 445:445
     environment:
-      ACCOUNT_admin: ${ACCOUNT_admin}
-      ACCOUNT_admin1: ${ACCOUNT_admin1}
-      UID_admin: 1000
-      UID_admin1: 1001
-      SAMBA_VOLUME_CONFIG_mediashare: "[Media]; path=/shares/media; browsable = yes; valid users = admin, admin1; writable = yes; read only = no; guest ok = no"
+      WSDD2_DISABLE: 1
+      AVAHI_DISABLE: 1
+      NETBIOS_DISABLE: 1
+
+      ACCOUNT_phone: A5k0&2Fbo9
+      UID_alice: 1000
+
+      ACCOUNT_pc: 8Bj@nw3Gah1
+      UID_bob: 1001
+
+      SAMBA_VOLUME_CONFIG_shared_home: "[Media]; path=/shares/media; valid users = phone, pc; guest ok = no; read only = no; browseable = yes;  writeable = yes"
+
     volumes:
       - /data:/shares/media
     cap_add:
@@ -20,10 +28,9 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: '1'
           memory: '512M'
         reservations:
-          cpus: '0.1'
           memory: '128M'
     networks:
       default:
