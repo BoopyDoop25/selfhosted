@@ -9,7 +9,7 @@ services:
     ports:
       - 445:445
     environment:
-      WSDD2_DISABLE: 1
+      #WSDD2_DISABLE: 1
       AVAHI_DISABLE: 1
       NETBIOS_DISABLE: 1
 
