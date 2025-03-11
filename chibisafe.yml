@@ -6,25 +6,23 @@ services:
     logging:
       driver: json-file
     ports:
-      - "24424:80"
+      - "9001:8001"
     environment:
       - BASE_API_URL=http://chibisafe_server:8000
-    restart: unless-stopped
 
   chibisafe_server:
+    container_name: chibisafe-server
     image: chibisafe/chibisafe-server:latest
+    restart: unless-stopped
+    logging:
+      driver: json-file
+    ports:
+      - "9000:8000"
     volumes:
       - ./database:/app/database:rw
       - ./uploads:/app/uploads:rw
       - ./logs:/app/logs:rw
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: '2G'
-    networks:
-      default:
-        ipv4_address: 100.0.0.14
+      
 networks:
   default:
     external: true
