@@ -5,7 +5,6 @@ services:
     restart: unless-stopped
     logging:
       driver: json-file
-    user: 1000:1000 # should be owner of volumes
     ports:
       - "4533:4533"
     environment:
@@ -15,7 +14,7 @@ services:
       ND_SESSIONTIMEOUT: 24h
       ND_BASEURL: ""
     volumes:
-      - "/docker/appdata/navidrome:/data"
+      - "/docker/appdata/navidrome:/data:rw"
       - "/data/media/music:/music:ro"
     deploy:
       resources:
