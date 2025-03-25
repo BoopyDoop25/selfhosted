@@ -17,41 +17,35 @@ x-common:
     # MAIL_PASSWORD: ""
     # MAIL_SCHEME: ""
 
-#
-# ------------------------------------------------------------------------------------------
-# DANGER ZONE BELOW
-#
-# The remainder of this file likely does not need to be changed. Please only make modifications
-# below if you understand what you are doing.
-#
-
 services:
   panel:
+    container_name: pelican_panel
     image: ghcr.io/pelican-dev/panel:latest
     build: .
     restart: unless-stopped
-    networks:
-      - default
+    logging:
+      driver: json-file
     ports:
-      - "80:80"
-      - "443:443"
-      # - "9000:9000" # enable when not using caddy to be abel to reach php-fpm
-    extra_hosts:
-      - "host.docker.internal:host-gateway" # shows the panel on te internal docker network as well. usually '172.17.0.1'
+      - "8009:80"
+      - "4443:443"
+      - "9000:9000" # enable when not using caddy to be abel to reach php-fpm
     volumes:
-      - pelican-data:/pelican-data
-      - pelican-logs:/var/www/html/storage/logs
+      - /docker/appdata/pelican:/pelican-data
+      - /docker/appdata/pelican/logs:/var/www/html/storage/logs
     environment:
       <<: [*panel-environment, *mail-environment]
       XDG_DATA_HOME: /pelican-data
-      # SKIP_CADDY: true # enable when not using caddy.
-
-volumes:
-  pelican-data:
-  pelican-logs:
+      SKIP_CADDY: true
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: '2G'
+    networks:
+      default:
+        ipv4_address: 100.0.0.15
 
 networks:
   default:
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
+    external: true
+    name: yes
