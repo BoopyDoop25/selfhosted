@@ -1,0 +1,9 @@
+services:
+  newt:
+    image: fosrl/newt
+    container_name: newt
+    restart: unless-stopped
+    environment:
+      - PANGOLIN_ENDPOINT=https://pangolin.servername.co.uk
+      - NEWT_ID=xxmdrwb74z8wucr
+      - NEWT_SECRET=37fe8fj4id0ov7xqq4fvdhnn6mz0ldbunhsvscet93cjf6nj
