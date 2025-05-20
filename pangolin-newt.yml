@@ -7,3 +7,10 @@ services:
       - PANGOLIN_ENDPOINT=https://pangolin.servername.co.uk
       - NEWT_ID=xxmdrwb74z8wucr
       - NEWT_SECRET=37fe8fj4id0ov7xqq4fvdhnn6mz0ldbunhsvscet93cjf6nj
+    networks:
+      default:
+        ipv4_address: 100.0.0.8
+networks:
+  default:
+    external: true
+    name: yes
