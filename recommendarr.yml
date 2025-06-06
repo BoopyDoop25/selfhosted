@@ -11,7 +11,7 @@ services:
     #    # - BASE_URL=${BASE_URL:-/}
     container_name: recommendarr
     ports:
-      - "${PORT:-3000}:${PORT:-3000}"  # Unified port for both frontend and API
+      - "${PORT:-3001}:${PORT:-3001}"  # Unified port for both frontend and API
     # This is needed to allow the container to access services on the host machine
     # For example, when connecting to Sonarr, Radarr, Plex etc. running on the host (I think?)
     # extra_hosts:
@@ -19,7 +19,7 @@ services:
     environment:
       - NODE_ENV=production
       - DOCKER_ENV=false 
-      - PORT=${PORT:-3000}
+      - PORT=${PORT:-3001}
       # Runtime environment variables
       # For reverse proxy setups, uncomment and modify these do NOT forget the build section above
       #- PUBLIC_URL=https://recommendarr.yourdomain.com
