@@ -18,6 +18,8 @@ services:
     image: fosrl/gerbil:latest
     container_name: gerbil
     restart: unless-stopped
+    logging:
+      driver: local
     depends_on:
       pangolin:
         condition: service_healthy
@@ -40,6 +42,8 @@ services:
     image: traefik:v3.3.3
     container_name: traefik
     restart: unless-stopped
+    logging:
+      driver: local
     network_mode: service:gerbil # Ports appear on the gerbil service
     depends_on:
       pangolin:
