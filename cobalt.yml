@@ -4,7 +4,7 @@ services:
     image: ghcr.io/imputnet/cobalt:10
     restart: unless-stopped
     logging:
-      driver: json-file
+      driver: local
     init: true
     read_only: true
     ports:
