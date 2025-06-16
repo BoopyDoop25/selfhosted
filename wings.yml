@@ -2,6 +2,8 @@ services:
   wings:
     image: ghcr.io/pelican-dev/wings:latest
     restart: unless-stopped
+    logging:
+      driver: local
     networks:
       - wings0
     ports:
