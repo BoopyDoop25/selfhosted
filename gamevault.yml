@@ -2,6 +2,8 @@ services:
   gamevault-backend:
     image: phalcode/gamevault-backend:latest
     restart: unless-stopped
+    logging:
+      driver: local
     environment:
       DB_HOST: db
       DB_USERNAME: gamevault
