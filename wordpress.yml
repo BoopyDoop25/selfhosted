@@ -4,6 +4,8 @@ services:
   wordpress:
     image: wordpress:latest
     restart: unless-stopped
+    logging:
+      driver: local
     volumes:
        - /data/compose/68/wordpress:/var/www/html
 
@@ -16,6 +18,8 @@ services:
   db:
     image: ubuntu/mysql:8.0-22.04_beta
     restart: unless-stopped
+    logging:
+      driver: local
     environment:
       MYSQL_DATABASE: 'db'
       MYSQL_ROOT_PASSWORD: ${password}
@@ -25,6 +29,8 @@ services:
   cloudflared:
     image: cloudflare/cloudflared
     restart: unless-stopped
+    logging:
+      driver: local
     command: --no-autoupdate tunnel run
     environment:
       - TUNNEL_TOKEN=${token}
