@@ -4,6 +4,8 @@ services:
     image: fosrl/pangolin:latest
     container_name: pangolin
     restart: unless-stopped
+    logging:
+      driver: local
     volumes:
       - ./config:/app/config
     healthcheck:
