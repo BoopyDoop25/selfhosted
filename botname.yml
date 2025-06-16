@@ -4,7 +4,7 @@ services:
     image: boopydoop/botname:latest
     restart: unless-stopped
     logging:
-      driver: json-file
+      driver: local
     env_file:
       - stack.env
     deploy:
