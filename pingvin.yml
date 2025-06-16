@@ -3,6 +3,8 @@ services:
     container_name: pingvin_share
     image: ghcr.io/stonith404/pingvin-share
     restart: unless-stopped
+    logging:
+      driver: local
     ports:
       - 3000:3000
     volumes:
