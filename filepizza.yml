@@ -1,6 +1,6 @@
 services:
   redis:
-    container-name: Filepizza-Redis
+    container_name: filepizza-redis
     image: redis:latest
     restart: unless-stopped
     logging:
@@ -28,6 +28,7 @@ services:
       - filepizza
   filepizza:
     build: .
+    container_name: filepizza
     image: kern/filepizza:latest
     logging:
       driver: local
