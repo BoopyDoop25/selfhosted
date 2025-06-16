@@ -10,6 +10,8 @@ services:
     #    # Only needed for reverse proxy setup:
     #    # - BASE_URL=${BASE_URL:-/}
     container_name: recommendarr
+    logging:
+      driver: local
     ports:
       - "${PORT:-3001}:${PORT:-3001}"  # Unified port for both frontend and API
     # This is needed to allow the container to access services on the host machine
