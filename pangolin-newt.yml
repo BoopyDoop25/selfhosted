@@ -3,6 +3,8 @@ services:
     image: fosrl/newt
     container_name: newt
     restart: unless-stopped
+    logging:
+      driver: local
     environment:
       - PANGOLIN_ENDPOINT=https://pangolin.servername.co.uk
       - NEWT_ID=xxmdrwb74z8wucr
