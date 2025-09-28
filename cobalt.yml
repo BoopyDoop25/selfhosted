@@ -34,7 +34,7 @@ services:
       default:
         ipv4_address: 100.0.0.9
           
-     watchtower updates the cobalt image automatically
+  # watchtower updates the cobalt image automatically
   watchtower:
     image: ghcr.io/containrrr/watchtower
     restart: unless-stopped
