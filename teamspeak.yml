@@ -1,6 +1,6 @@
 services:
   teamspeak:
-    container_name: Teamspeak
+    container_name: teamspeak
     image: teamspeaksystems/teamspeak6-server
     restart: unless-stopped
     logging:
