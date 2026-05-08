@@ -1,7 +1,7 @@
 services:
   teamspeak:
     container_name: Teamspeak
-    image: teamspeak
+    image: teamspeak:latest
     restart: unless-stopped
     logging:
       driver: local
@@ -19,8 +19,8 @@ services:
       TS3SERVER_DB_WAITUNTILREADY: 30
       TS3SERVER_LICENSE: accept
   db:
-    image: mariadb
-    container_name: TS3-MaraiDB
+    image: mariadb:latest
+    container_name: TS3-MariaiDB
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${mysql_pass}
